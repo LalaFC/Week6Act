@@ -10,6 +10,8 @@ public class HealthBuff : PowerUPScriptable
     public override void Apply(GameObject target)
     {
         target.GetComponent<PlayerMech>().Health += amount;
+        PlayerPrefs.SetFloat("PlayerHP", target.GetComponent<PlayerMech>().Health);
+        PlayerPrefs.Save();
     }
     public override void Remove(GameObject target)
     {

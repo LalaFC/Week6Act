@@ -30,7 +30,7 @@ public class EnemyMechanics : MonoBehaviour
     void Update()
     {
         HP = Mathf.Clamp(HP, 0, 100);
-        if (Time.time > 3)
+        if (Time.time > 5)
         GetComponent<Collider2D>().enabled = true;
         transform.Translate(Vector2.down * (speed/5) * Time.deltaTime);
         if (transform.position.y < Boundary.boundary.y * -1)

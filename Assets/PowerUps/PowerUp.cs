@@ -12,7 +12,9 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
-        buffEffect = PowerUPs[Random.Range(0,1)];
+        int randomvalue = System.Convert.ToInt32(Random.value * 10);
+        buffEffect = PowerUPs[randomvalue % PowerUPs.Count];
+        //rend.color = buffEffect.color;
     }
 
     private void Update()

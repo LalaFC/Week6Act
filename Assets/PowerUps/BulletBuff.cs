@@ -15,7 +15,6 @@ public class BulletBuff : PowerUPScriptable
         for (int i = 0; i < bullet.transform.childCount; i++)
         {
             bullet.transform.GetChild(i).gameObject.SetActive(true);
-            bullet.transform.GetChild(i).gameObject.GetComponent<PlayerBullet>().damage += 10;
         }
     }
     public override void Remove(GameObject target)
@@ -25,7 +24,6 @@ public class BulletBuff : PowerUPScriptable
         PlayerBullet bulletSetting = bullet.GetComponent<PlayerBullet>();
         for (int i = 0; i < bullet.transform.childCount; i++)
         {
-            bullet.transform.GetChild(i).gameObject.GetComponent<PlayerBullet>().damage -= 10;
             bullet.transform.GetChild(i).gameObject.SetActive(false);
         }
     }

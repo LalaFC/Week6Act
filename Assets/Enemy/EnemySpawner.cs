@@ -19,14 +19,14 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         t = Time.time;
-        for(int ArrayIndex = 0, y=15 ; ArrayIndex < spawnChance.Length; ArrayIndex++) 
+        for(int ArrayIndex = 0; ArrayIndex < spawnChance.Length; ArrayIndex++) 
         {
             if (ArrayIndex == 0)
                 spawnChance[ArrayIndex] = 50;
             else
             {
-                float LogChanceRate = Mathf.Exp(t);
-                spawnChance[ArrayIndex] = Mathf.Lerp(10,25+(25/ArrayIndex), LogChanceRate / y );
+                float LogChanceRate = Mathf.Pow(1.1f,t)/100;
+                spawnChance[ArrayIndex] = Mathf.Lerp(10,25+(25/ArrayIndex), LogChanceRate);
             }
         }
     }
