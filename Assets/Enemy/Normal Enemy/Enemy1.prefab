@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9172552917968231093}
   - component: {fileID: 2355091122856374835}
   - component: {fileID: 6259557264655285294}
+  - component: {fileID: 1113216270049584893}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -106,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 8414478535512612329, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   m_Color: {r: 0.990566, g: 0.07008721, b: 0.07008721, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +135,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.45833334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,7 +163,6 @@ MonoBehaviour:
   HP: 0
   shield: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  score: 0
   loot: {fileID: 2387782096172120941, guid: d174c2621b0ef4b49abdddc71778ac4b, type: 3}
   player: {fileID: 5637486668211758819, guid: c6be1ca03fb21e4478f9c9c74b75f933, type: 3}
 --- !u!50 &2355091122856374835
@@ -200,3 +200,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 5807179994586151423, guid: e949f024cf86e0040a74e22679aeacee, type: 3}
   BulletSpawnSpot: {fileID: 9172552917606129188}
+--- !u!114 &1113216270049584893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172552917968231097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402d6372a6db25440a0a03acea802794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

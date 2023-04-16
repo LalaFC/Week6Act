@@ -14,7 +14,8 @@ public class PowerUp : MonoBehaviour
     {
         int randomvalue = System.Convert.ToInt32(Random.value * 10);
         buffEffect = PowerUPs[randomvalue % PowerUPs.Count];
-        //rend.color = buffEffect.color;
+        rend = GetComponent<SpriteRenderer>();
+        rend.color = buffEffect.color;
     }
 
     private void Update()
