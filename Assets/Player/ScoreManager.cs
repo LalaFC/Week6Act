@@ -23,11 +23,13 @@ public class ScoreManager : MonoBehaviour
     }
     public void FinalScore()
     {
-        PlayerPrefs.SetInt("PlayerScore", score);
+        score = PlayerPrefs.GetInt("PlayerScore");
+        highscore = PlayerPrefs.GetInt("HighScore");
         if (score > highscore)
         {
             highscore = score;
             PlayerPrefs.SetInt("HighScore", highscore);
+            PlayerPrefs.Save();
         }
         PlayerPrefs.Save();
     }

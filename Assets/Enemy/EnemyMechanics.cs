@@ -19,7 +19,7 @@ public class EnemyMechanics : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         rend = GetComponent<SpriteRenderer>();
         Enemy = GetStats();
-        HP = Enemy.HP;
+        HP = HP + Enemy.HP;
         shield = Enemy.shield;
         color = Enemy.Color;
         rend.color = color;
@@ -30,7 +30,7 @@ public class EnemyMechanics : MonoBehaviour
     void Update()
     {
         HP = Mathf.Clamp(HP, 0, 100);
-        if (Time.time > 3)
+        if (Time.time > 5)
         GetComponent<Collider2D>().enabled = true;
         transform.Translate(Vector2.down * (speed/5) * Time.deltaTime);
         if (transform.position.y < Boundary.boundary.y * -1)
@@ -64,7 +64,7 @@ public class EnemyMechanics : MonoBehaviour
         HP -= damage;
         Debug.Log("Enemy Hit! HP = "+HP);
 
-        if (HP == 0)
+        if (HP <= 0)
             return Die();
 
         else return 0;

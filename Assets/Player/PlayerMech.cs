@@ -17,8 +17,6 @@ public class PlayerMech : MonoBehaviour
     void Start()
     {
         Health = 100;
-        PlayerPrefs.SetFloat("PlayerHP", Health);
-        PlayerPrefs.Save();
 
         for (int i = 0; i < Bullet.transform.childCount; i++)
         {
@@ -33,7 +31,11 @@ public class PlayerMech : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(moveHorizontal * Vector2.right);
+        Health = PlayerPrefs.GetFloat("PlayerHP");
         Health = Mathf.Clamp(Health, 0, 100);
+        PlayerPrefs.SetFloat("PlayerHP", Health);
+        PlayerPrefs.Save();
+
     }
     void Shoot()
     {
@@ -54,7 +56,6 @@ public class PlayerMech : MonoBehaviour
     {
         Debug.Log("You have Died. T^T");
         GetComponent<ScoreManager>().FinalScore();
-        GetComponent<ScoreManager>().ResetScore();
         SceneManager.LoadScene(0);
     }
 }

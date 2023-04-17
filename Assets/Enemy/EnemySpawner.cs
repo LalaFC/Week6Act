@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<SpawnSpots> SpawnSpots = new List<SpawnSpots>();
     public List<GameObject> EnemyTypes = new List<GameObject>();
     private GameObject Enemy;
-    private SpawnSpots SpawnSpot;
     public float t=0;
     [SerializeField] public float[] spawnChance;
 
@@ -19,22 +17,22 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         t = Time.time;
-        for(int ArrayIndex = 0, y=15 ; ArrayIndex < spawnChance.Length; ArrayIndex++) 
+        for(int ArrayIndex = 0; ArrayIndex < spawnChance.Length; ArrayIndex++) 
         {
             if (ArrayIndex == 0)
                 spawnChance[ArrayIndex] = 50;
             else
             {
-                float LogChanceRate = Mathf.Exp(t);
-                spawnChance[ArrayIndex] = Mathf.Lerp(10,25+(25/ArrayIndex), LogChanceRate / y );
+                float ExpChanceRate = Mathf.Pow(1.1f,t)/100;
+                spawnChance[ArrayIndex] = Mathf.Lerp(10,25+(25/ArrayIndex), ExpChanceRate);
             }
         }
     }
     private void Spawn()
     {
-        SpawnSpot = SpawnSpots[Random.Range(0,SpawnSpots.Count)];
+        Vector3 RandomArea = new Vector3(Mathf.Lerp(Boundary.boundary.x*-1,Boundary.boundary.x,Random.value),Boundary.boundary.y, 0);
         Enemy = EnemyTypes[GetEnemyType()];
-        Instantiate(Enemy, SpawnSpot.Spot, Quaternion.identity);
+        Instantiate(Enemy, RandomArea, Quaternion.identity);
     }
     private int GetEnemyType()
     {
@@ -55,7 +53,5 @@ public class EnemySpawner : MonoBehaviour
         }
         return 0;
     }
-
-    //private IEnumerator 
 
 }
